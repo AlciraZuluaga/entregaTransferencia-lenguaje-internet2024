@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Integrantes - GET</title>
+</head>
+
+<body>
+    <h1>Lista de Integrantes</h1>
+
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Número de identificación</th>
+                <th>Nombre completo</th>
+                <th>Género</th>
+            </tr>
+        </thead>
+    </table>
+    <button onclick="index()">index</button>
+
+    <script>
+        // Recuperar el integrantesMap de sessionStorage
+        let integrantesMap = JSON.parse(sessionStorage.getItem('integrantesMap') || '{}');
+        console.log("integrantesMap:");
+        console.log(integrantesMap);
+        console.log();
+        console.log("Object.keys(integrantesMap).length:");
+        console.log(Object.keys(integrantesMap).length);
+        console.log();
+
+        // Recorrer el integrantesMap y crear elementos de lista
+        const listaIntegrantes = document.getElementById('listaIntegrantes');
+        console.log("listaIntegrantes:");
+        console.log(listaIntegrantes);
+        let tabla = document.getElementById("tabla")
+        for (i = 0; i < Object.keys(integrantesMap).length; i++) {
+
+            let fila = tabla.insertRow(tabla.rows.length);
+
+            let integranteRecovered = integrantesMap[Object.keys(integrantesMap)[i]];
+            console.log(Object.keys(integrantesMap)[i]);
+            console.log(integranteRecovered);
+
+            //const li = document.createElement('li');
+            //li.textContent = `${integranteRecovered.numeroIdentificacion}: ${integranteRecovered.nombreCompleto}`;
+            //listaIntegrantes.appendChild(li);
+            createCell(fila.insertCell(0), integranteRecovered.numeroIdentificacion, 'row');
+            createCell(fila.insertCell(1), integranteRecovered.nombreCompleto, 'row');
+            createCell(fila.insertCell(2), integranteRecovered.genero, 'row');
+        }
+
+        function createCell(cell, text, style) {
+        var div = document.createElement('div'), 
+        txt = document.createTextNode(text);    
+        div.appendChild(txt);                   
+        div.setAttribute('class', style);        
+        div.setAttribute('className', style);    
+        cell.appendChild(div);                   
+}
+        function index() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>

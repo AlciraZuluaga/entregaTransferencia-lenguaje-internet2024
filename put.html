@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Integrante Club - PUT</title>
+</head>
+
+<body>
+    <h1>Editar Integrante</h1>
+
+    <form id="formularioPut" method="put" action="">
+        <table>
+            <tr>
+                <td>
+                    Información personal:
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="numero_identificacion">Número de identificación:</label></th>
+            </tr>
+            <tr>
+                <td><input type="text" id="numero_identificacion" name="numero_identificacion" required></td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="nombre_completo">Nombre completo:</label>
+                </th>
+                <th>
+                    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                </th>
+                <th>
+                    <label for="genero">Género:</label>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="nombre_completo" name="nombre_completo" required>
+                </td>
+                <td>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                </td>
+                <td>
+                    <select id="genero" name="genero" required>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <th><label for="nacionalidad">Nacionalidad:</label></th>
+                <th><label for="ciudad">Ciudad:</label></th>
+            </tr>
+            <tr>
+                <td><input type="text" id="nacionalidad" name="nacionalidad" required></td>
+                <td><input type="text" id="ciudad" name="ciudad" required></td>
+            </tr>
+
+            <tr>
+                <th><label for="direccion">Dirección:</label></th>
+                <th><label for="correo_electronico">Correo electrónico:</label></th>
+                <th><label for="numero_telefono">Número de teléfono:</label></th>
+            </tr>
+            <tr>
+                <td><input type="text" id="direccion" name="direccion"></td>
+                <td><input type="email" id="correo_electronico" name="correo_electronico" required></td>
+                <td><input type="tel" id="numero_telefono" name="numero_telefono" required></td>
+            </tr>
+
+            <tr>
+                <th><label for="foto">Foto reciente:</label></th>
+            </tr>
+            <tr>
+                <td><input type="file" id="foto" name="foto" accept="image/*"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    Información de contacto en caso de emergencia:
+                    <hr>
+                </td>
+            </tr>
+
+            <tr>
+                <th><label for="nombre_contacto">Nombre completo del contacto:</label></th>
+                <th><label for="telefono_contacto">Número de teléfono del contacto:</label></th>
+                <th><label for="relacion_contacto">Relación con el Integrante:</label></th>
+            </tr>
+            <tr>
+                <td><input type="text" id="nombre_contacto" name="nombre_contacto" required></td>
+                <td><input type="tel" id="telefono_contacto" name="telefono_contacto" required></td>
+                <td><input type="text" id="relacion_contacto" name="relacion_contacto" required></td>
+            </tr>
+
+            <tr>
+                <td><button type="submit" id="boton_enviar" name="boton_enviar">Guardar Datos</button></td>
+            </tr>
+        </table>
+
+        <button type="button" onclick="cargarDatos()">Cargar Datos</button>
+    </form>
+    <button onclick="index()">index</button>
+
+    <script src="put.js"></script>
+    <script src="edit.js"></script>
+</body>
+
+</html>
